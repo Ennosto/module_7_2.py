@@ -1,10 +1,11 @@
 def custom_write(file_name: str, strings: list[str]):
     strings_positions = {}
     file = open(file_name, 'w', encoding='utf-8')
+    i = 0
     for str_ in strings:
-        bite_ = file.tell()
+        i += 1
+        strings_positions[(i, file.tell())] = f'{str_}'
         file.write(f'{str_}\n')
-        strings_positions[(strings.index(str_) + 1, bite_)] = f'{str_}'
     file.close()
     return strings_positions
 
