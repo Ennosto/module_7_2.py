@@ -2,9 +2,9 @@ def custom_write(file_name: str, strings: list[str]):
     strings_positions = {}
     file = open(file_name, 'w', encoding='utf-8')
     for str_ in strings:
-        file.tell()
+        bite_ = file.tell()
         file.write(f'{str_}\n')
-        strings_positions[(strings.index(str_) + 1, file.tell())] = f'{str_}'
+        strings_positions[(strings.index(str_) + 1, bite_)] = f'{str_}'
     file.close()
     return strings_positions
 
